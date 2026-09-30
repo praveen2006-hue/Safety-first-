@@ -1,0 +1,11 @@
+{
+  "name": "SAFETY FIRST",
+  "short_name": "SAFETY FIRST",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#F5F8FC",
+  "theme_color": "#062B57",
+  "description": "Women safety and emergency response mobile application",
+  "permissions": ["geolocation"],
+  "icons": []
+}

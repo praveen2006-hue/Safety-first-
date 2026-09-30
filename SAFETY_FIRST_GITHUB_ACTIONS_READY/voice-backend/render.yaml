@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: safety-first-emergency-voice
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: EXOTEL_ACCOUNT_SID
+        sync: false
+      - key: EXOTEL_API_KEY
+        sync: false
+      - key: EXOTEL_API_TOKEN
+        sync: false
+      - key: EXOTEL_CALLER_ID
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_REALTIME_MODEL
+        value: gpt-realtime-2.1
+      - key: PUBLIC_BASE_URL
+        sync: false

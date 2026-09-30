@@ -1,0 +1,24 @@
+#!/bin/sh
+# SAFETY FIRST project wrapper for AndroidIDE/PHONE AS.
+# Uses the Gradle installation provided by the IDE/device.
+set -e
+
+if command -v gradle >/dev/null 2>&1; then
+  exec gradle "$@"
+fi
+
+if [ -x "$HOME/.gradle/bin/gradle" ]; then
+  exec "$HOME/.gradle/bin/gradle" "$@"
+fi
+
+if [ -x "/data/data/com.m4coding.ide/files/usr/bin/gradle" ]; then
+  exec "/data/data/com.m4coding.ide/files/usr/bin/gradle" "$@"
+fi
+
+if [ -x "/data/data/com.itsaky.androidide/files/usr/bin/gradle" ]; then
+  exec "/data/data/com.itsaky.androidide/files/usr/bin/gradle" "$@"
+fi
+
+echo "Gradle was not found in the AndroidIDE environment." >&2
+echo "Open AndroidIDE's Gradle/Build Tools setup and install/configure Gradle, then run this command again." >&2
+exit 127
